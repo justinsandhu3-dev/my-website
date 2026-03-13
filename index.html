@@ -818,6 +818,76 @@
       .ages-grid { grid-template-columns: 1fr; }
     }
 
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--black); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-text {
+      color: #444;
+      font-size: 0.92rem;
+      line-height: 1.8;
+      flex: 1;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), #8b0000);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+    }
+
+    .testimonial-meta {
+      font-size: 0.75rem;
+      color: #888;
+    }
+
     /* ── SCROLL ANIMATIONS ── */
     .fade-up {
       opacity: 0;
@@ -840,6 +910,7 @@
       <li><a href="#programs">Programs</a></li>
       <li><a href="#ages">Ages & Pricing</a></li>
       <li><a href="#coach">Coach</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="#social">Follow Us</a></li>
       <li><a href="#contact" class="nav-cta">Book Free Trial</a></li>
@@ -1054,6 +1125,68 @@
             <span class="coach-tag">Private Coaching</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <div style="text-align:center;" class="fade-up">
+        <div class="section-label">What Parents Say</div>
+        <h2 class="section-title">Real <span class="gold">Reviews</span></h2>
+        <div class="section-divider" style="margin-left:auto;margin-right:auto;"></div>
+      </div>
+      <div class="testimonials-grid fade-up">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Working with 3150 Dragons as a photographer has been an incredible experience. The team's energy and passion for the game made every shoot exciting and rewarding. Justin is an amazing coach — always making each training session fun and enjoyable. Seeing the kids light up with joy as they play and grow through the sport has been truly heartwarming."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Søønita</div>
+              <div class="testimonial-meta">Google Review &nbsp;·&nbsp; 44 weeks ago</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"My boys have been part of 3150 Dragons Soccer Academy for over 1 year now and they cannot wait for their weekly lessons — they just love it. Coach Justin is one of a kind, a professional coach and amazing with all the kids. The improvement in my sons' abilities — from skills, tactics and overall knowledge of the game — has been enormous. I highly recommend 3150 Dragons Soccer Academy!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">D</div>
+            <div>
+              <div class="testimonial-name">Dasunrasi Athukorala</div>
+              <div class="testimonial-meta">Google Review &nbsp;·&nbsp; September 2024</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"My daughter has been part of Dragons Soccer Academy for 6 months and it has been an incredibly positive experience. Under Justin's guidance, she has improved her technical skills and grown in confidence and sportsmanship. His sessions are well-structured, engaging, and tailored to challenge each player. I highly recommend this academy to any parent looking for a program that prioritises skill development, sportsmanship, and a positive team culture."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Mona Chopra</div>
+              <div class="testimonial-meta">Google Review &nbsp;·&nbsp; July 2024</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Best soccer club in the area — my kid waits for the weekend to be there at practice. Coach Justin is a great bloke who focuses on each kid in the team and supports them according to their strengths. Great place to start helping our kids with their dream of playing soccer."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Shiva Bodla</div>
+              <div class="testimonial-meta">Google Review &nbsp;·&nbsp; July 2024</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
