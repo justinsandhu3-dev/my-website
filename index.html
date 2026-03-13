@@ -1084,6 +1084,89 @@
       color: #888;
     }
 
+    /* ── CALL JUSTIN BUTTON ── */
+    .btn-call-justin {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      padding: 0.75rem 1.6rem;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(204,17,17,0.35);
+    }
+    .btn-call-justin:hover {
+      background: var(--red-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(204,17,17,0.45);
+      color: #fff;
+    }
+
+    /* ── FOOTER PHONE BUTTON ── */
+    .footer-social-btn.phone {
+      background: rgba(204,17,17,0.15);
+      color: #ff6666;
+      border-color: rgba(204,17,17,0.3);
+    }
+    .footer-social-btn.phone:hover { background: rgba(204,17,17,0.3); }
+
+    /* ── SIDEBAR NAV ── */
+    #sidenav {
+      position: fixed;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      z-index: 990;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: rgba(255,255,255,0.95);
+      border-right: 1px solid var(--border);
+      border-radius: 0 12px 12px 0;
+      padding: 10px 0;
+      box-shadow: 2px 0 16px rgba(0,0,0,0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .sidenav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 10px 14px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #555;
+      transition: color 0.2s, background 0.2s;
+      position: relative;
+      min-width: 64px;
+      border-left: 3px solid transparent;
+    }
+    .sidenav-item:hover {
+      color: var(--red);
+      background: rgba(204,17,17,0.06);
+    }
+    .sidenav-item.active {
+      color: var(--red);
+      border-left-color: var(--red);
+      background: rgba(204,17,17,0.08);
+    }
+    .sidenav-icon { font-size: 1.1rem; line-height: 1; }
+    .sidenav-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    @media (max-width: 1024px) { #sidenav { display: none; } }
+
     /* ── SCROLL ANIMATIONS ── */
     .fade-up {
       opacity: 0;
@@ -1471,7 +1554,7 @@
             <div class="location-detail-icon"><i class="fas fa-clock"></i></div>
             <div class="location-detail-text">
               <h4>Session Times</h4>
-              <p>Contact us to find out current session days and times.</p>
+              <p>📅 Every Saturday<br>⏰ 4:15pm – 5:45pm<br>📍 Lum Reserve, Lum Road, Wheelers Hill VIC 3150</p>
             </div>
           </div>
           <a href="https://maps.google.com/?q=Lum+Reserve,+Lum+Road,+Wheelers+Hill+VIC+3150" target="_blank" rel="noopener" class="btn-secondary" style="display:inline-block;margin-top:0.5rem;">
@@ -1596,6 +1679,18 @@
     </div>
   </section>
 
+  <!-- SIDEBAR NAV -->
+  <nav id="sidenav" aria-label="Section navigation">
+    <a href="#hero"         class="sidenav-item" data-section="hero">      <span class="sidenav-icon">🏠</span><span class="sidenav-label">Home</span></a>
+    <a href="#programs"     class="sidenav-item" data-section="programs">  <span class="sidenav-icon">⚽</span><span class="sidenav-label">Programs</span></a>
+    <a href="#ages"         class="sidenav-item" data-section="ages">      <span class="sidenav-icon">👦</span><span class="sidenav-label">Ages</span></a>
+    <a href="#coach"        class="sidenav-item" data-section="coach">     <span class="sidenav-icon">🧑‍💼</span><span class="sidenav-label">Coach</span></a>
+    <a href="#gallery"      class="sidenav-item" data-section="gallery">   <span class="sidenav-icon">📸</span><span class="sidenav-label">Gallery</span></a>
+    <a href="#testimonials" class="sidenav-item" data-section="testimonials"><span class="sidenav-icon">⭐</span><span class="sidenav-label">Reviews</span></a>
+    <a href="#location"     class="sidenav-item" data-section="location">  <span class="sidenav-icon">📍</span><span class="sidenav-label">Location</span></a>
+    <a href="#contact"      class="sidenav-item" data-section="contact">   <span class="sidenav-icon">📅</span><span class="sidenav-label">Book Trial</span></a>
+  </nav>
+
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" onclick="closeLightbox()">&#215;</button>
@@ -1628,7 +1723,13 @@
             <a href="https://maps.google.com/?q=Lum+Reserve,+Lum+Road,+Wheelers+Hill+VIC+3150" target="_blank" rel="noopener" class="contact-link">
               <i class="fas fa-map-marker-alt"></i> Lum Reserve, Wheelers Hill VIC 3150
             </a>
+            <a href="tel:0431910239" class="contact-link">
+              <i class="fas fa-phone"></i> 0431 910 239
+            </a>
           </div>
+          <a href="tel:0431910239" class="btn-call-justin">
+            <i class="fas fa-phone"></i> Call Justin
+          </a>
         </div>
         <div class="fade-up">
           <!--
@@ -1705,7 +1806,11 @@
             <a href="https://www.instagram.com/justin3838/" target="_blank" rel="noopener" class="footer-social-btn ig" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
+            <a href="tel:0431910239" class="footer-social-btn phone" aria-label="Call Justin">
+              <i class="fas fa-phone"></i>
+            </a>
           </div>
+          <p style="color:#aaa;font-size:0.82rem;margin-top:0.5rem;">📞 0431 910 239</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -1759,6 +1864,23 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Sidebar active state
+    const sideItems = document.querySelectorAll('.sidenav-item');
+    const sections  = ['hero','programs','ages','coach','gallery','testimonials','location','contact']
+      .map(id => document.getElementById(id)).filter(Boolean);
+
+    function updateSidenav() {
+      let current = sections[0].id;
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+      });
+      sideItems.forEach(item => {
+        item.classList.toggle('active', item.dataset.section === current);
+      });
+    }
+    window.addEventListener('scroll', updateSidenav, { passive: true });
+    updateSidenav();
 
     // Lightbox
     const galleryImages = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.src);
