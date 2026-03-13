@@ -698,6 +698,62 @@
       margin-bottom: 3rem;
     }
 
+    /* Facebook-only top row */
+    .social-grid-top {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .social-grid-top .social-card {
+      max-width: 480px;
+      width: 100%;
+    }
+
+    /* Instagram feed section */
+    .instagram-feed-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .instagram-feed-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .instagram-feed-icon {
+      font-size: 2rem;
+      color: #e1306c;
+      flex-shrink: 0;
+    }
+    .instagram-feed-title {
+      font-size: 1.2rem;
+      color: #1a1a1a;
+      margin-bottom: 0.1rem;
+    }
+    .instagram-feed-sub {
+      font-size: 0.82rem;
+      color: #666;
+      margin: 0;
+    }
+    .instagram-follow-btn {
+      margin-left: auto;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+      padding: 0.55rem 1.3rem;
+      font-size: 0.88rem;
+    }
+    .behold-widget-wrap {
+      width: 100%;
+    }
+    .behold-widget-wrap behold-widget {
+      display: block;
+      width: 100%;
+    }
+
     .social-card {
       border-radius: 12px;
       padding: 2.5rem;
@@ -1592,7 +1648,8 @@
           Watch training highlights, skill videos, and behind-the-scenes content from our sessions. Follow us to stay up to date with news, events, and tournament results.
         </p>
       </div>
-      <div class="social-grid fade-up">
+      <!-- Facebook card -->
+      <div class="social-grid-top fade-up">
         <div class="social-card facebook">
           <div class="social-icon"><i class="fab fa-facebook"></i></div>
           <h3>Facebook</h3>
@@ -1601,13 +1658,30 @@
             <i class="fab fa-facebook"></i> Visit Our Page
           </a>
         </div>
-        <div class="social-card instagram">
-          <div class="social-icon"><i class="fab fa-instagram"></i></div>
-          <h3>Instagram</h3>
-          <p>Training session videos, skill highlights, and real moments from the pitch. See what the Dragons are working on this week.</p>
-          <a href="https://www.instagram.com/justin3838/" target="_blank" rel="noopener" class="btn-social">
-            <i class="fab fa-instagram"></i> Follow on Instagram
+      </div>
+
+      <!-- Instagram live feed via Behold.so -->
+      <!--
+        SETUP INSTRUCTIONS FOR JUSTIN:
+        1. Sign up free at https://behold.so
+        2. Connect your Instagram account @justin3838
+        3. Create a feed and copy your Feed ID (looks like: AbCdEfGhIjKlMnOp)
+        4. Replace PLACEHOLDER_FEED_ID below with your actual Feed ID
+        5. Save and push the file (or ask for help doing this)
+      -->
+      <div class="instagram-feed-section fade-up">
+        <div class="instagram-feed-header">
+          <span class="instagram-feed-icon"><i class="fab fa-instagram"></i></span>
+          <div>
+            <h3 class="instagram-feed-title">@justin3838 on Instagram</h3>
+            <p class="instagram-feed-sub">Training highlights &amp; behind-the-scenes from the Dragons</p>
+          </div>
+          <a href="https://www.instagram.com/justin3838/" target="_blank" rel="noopener" class="btn-social instagram-follow-btn">
+            <i class="fab fa-instagram"></i> Follow
           </a>
+        </div>
+        <div class="behold-widget-wrap">
+          <behold-widget feed-id="PLACEHOLDER_FEED_ID"></behold-widget>
         </div>
       </div>
     </div>
@@ -1945,5 +2019,7 @@
       if (e.key === 'ArrowLeft') changePhoto(-1);
     });
   </script>
+  <!-- Behold.so Instagram feed widget — loads the <behold-widget> custom element -->
+  <script src="https://w.behold.so/widget.js" type="module"></script>
 </body>
 </html>
