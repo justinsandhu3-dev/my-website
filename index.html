@@ -224,6 +224,74 @@
       transform: translateY(-2px);
     }
 
+    /* ── PATHWAY CARDS ── */
+    .hero-pathways {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+      max-width: 780px;
+    }
+
+    .pathway-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 1.6rem 1rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+      backdrop-filter: blur(4px);
+      position: relative;
+      overflow: hidden;
+    }
+    .pathway-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #cc1111, #f0b429);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+    .pathway-card:hover {
+      background: rgba(204,17,17,0.25);
+      border-color: #cc1111;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(204,17,17,0.3);
+      color: #fff;
+    }
+    .pathway-card:hover::before { transform: scaleX(1); }
+
+    .pathway-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .pathway-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pathway-arrow {
+      font-size: 0.8rem;
+      color: #f0b429;
+      letter-spacing: 0.1em;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    @media (max-width: 540px) {
+      .hero-pathways { grid-template-columns: 1fr; max-width: 320px; }
+    }
+
     .hero-stats {
       display: flex;
       gap: 2.5rem;
@@ -1010,6 +1078,25 @@
         <a href="#contact" class="btn-primary">&#9654; Book Your Free Trial</a>
         <a href="#programs" class="btn-secondary">See Our Programs</a>
       </div>
+
+      <div class="hero-pathways">
+        <a href="#programs" class="pathway-card">
+          <div class="pathway-icon">👨‍👧</div>
+          <div class="pathway-label">I'm a Parent</div>
+          <div class="pathway-arrow">Explore Programs ›</div>
+        </a>
+        <a href="#ages" class="pathway-card">
+          <div class="pathway-icon">⚽</div>
+          <div class="pathway-label">I'm a Player</div>
+          <div class="pathway-arrow">Find My Group ›</div>
+        </a>
+        <a href="#contact" class="pathway-card">
+          <div class="pathway-icon">🤝</div>
+          <div class="pathway-label">Coach / Partner</div>
+          <div class="pathway-arrow">Get in Touch ›</div>
+        </a>
+      </div>
+
       <div class="hero-stats">
         <div class="stat">
           <div class="stat-number">6–12</div>
