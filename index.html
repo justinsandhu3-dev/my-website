@@ -41,6 +41,10 @@
 
     img { max-width: 100%; display: block; }
 
+    /* ── NAVBAR LOGO ── */
+    .nav-logo-link { display: flex; align-items: center; }
+    .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
+
     /* ── NAVBAR ── */
     #navbar {
       position: fixed;
@@ -818,6 +822,91 @@
       .ages-grid { grid-template-columns: 1fr; }
     }
 
+    /* ── GALLERY ── */
+    #gallery { background: var(--dark); }
+
+    .gallery-grid {
+      columns: 4;
+      column-gap: 0.8rem;
+    }
+    @media (max-width: 1024px) { .gallery-grid { columns: 3; } }
+    @media (max-width: 640px)  { .gallery-grid { columns: 2; } }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 0.8rem;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s, filter 0.3s;
+      border-radius: 8px;
+    }
+    .gallery-item:hover img { transform: scale(1.03); filter: brightness(0.85); }
+    .gallery-item::after {
+      content: '⛶';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-size: 2.5rem;
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+
     /* ── TESTIMONIALS ── */
     #testimonials { background: var(--black); }
 
@@ -904,12 +993,15 @@
 
   <!-- NAVBAR -->
   <nav id="navbar">
-    <div class="nav-logo">3150 <span>DRAGONS</span><br>SOCCER ACADEMY</div>
+    <a href="#hero" class="nav-logo-link">
+      <img src="images/dragons-logo.png" alt="3150 Dragons Soccer Academy" class="nav-logo-img" />
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#ages">Ages & Pricing</a></li>
       <li><a href="#coach">Coach</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#testimonials">Reviews</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="#social">Follow Us</a></li>
@@ -1290,6 +1382,87 @@
     </div>
   </section>
 
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="section-inner">
+      <div style="text-align:center;" class="fade-up">
+        <div class="section-label">Training Sessions</div>
+        <h2 class="section-title">Photo <span class="gold">Gallery</span></h2>
+        <div class="section-divider" style="margin-left:auto;margin-right:auto;"></div>
+      </div>
+      <div class="gallery-grid fade-up">
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="images/photo1.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="images/photo3.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(2)"><img src="images/photo4.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="images/photo5.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(4)"><img src="images/photo6.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="images/photo7.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(6)"><img src="images/photo8.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(7)"><img src="images/photo9.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(8)"><img src="images/photo10.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(9)"><img src="images/photo11.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(10)"><img src="images/photo12.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(11)"><img src="images/photo13.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(12)"><img src="images/photo14.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(13)"><img src="images/photo15.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(14)"><img src="images/photo16.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(15)"><img src="images/photo18.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(16)"><img src="images/photo19.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(17)"><img src="images/photo20.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(18)"><img src="images/photo21.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(19)"><img src="images/photo22.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(20)"><img src="images/photo23.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(21)"><img src="images/photo24.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(22)"><img src="images/photo25.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(23)"><img src="images/photo26.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(24)"><img src="images/photo27.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(25)"><img src="images/photo28.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(26)"><img src="images/photo29.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(27)"><img src="images/photo30.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(28)"><img src="images/photo31.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(29)"><img src="images/photo32.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(30)"><img src="images/photo33.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(31)"><img src="images/photo34.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(32)"><img src="images/photo35.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(33)"><img src="images/photo36.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(34)"><img src="images/photo37.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(35)"><img src="images/photo38.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(36)"><img src="images/photo39.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(37)"><img src="images/photo40.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(38)"><img src="images/photo41.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(39)"><img src="images/photo42.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(40)"><img src="images/photo43.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(41)"><img src="images/photo44.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(42)"><img src="images/photo45.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(43)"><img src="images/photo46.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(44)"><img src="images/photo47.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(45)"><img src="images/photo48.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(46)"><img src="images/photo49.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(47)"><img src="images/photo50.JPG" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(48)"><img src="images/photo51.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(49)"><img src="images/photo52.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(50)"><img src="images/photo53.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(51)"><img src="images/photo54.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(52)"><img src="images/photo55.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(53)"><img src="images/photo56.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(54)"><img src="images/photo57.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(55)"><img src="images/photo58.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(56)"><img src="images/photo59.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(57)"><img src="images/photo60.jpg" alt="Training session" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(58)"><img src="images/dragons-kit-1.jpeg" alt="Dragons kit" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox(59)"><img src="images/2024-banner.jpg" alt="2024 Banner" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&#215;</button>
+    <button class="lightbox-prev" onclick="changePhoto(-1)">&#8249;</button>
+    <img id="lightbox-img" src="" alt="Photo" />
+    <button class="lightbox-next" onclick="changePhoto(1)">&#8250;</button>
+  </div>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner">
@@ -1445,6 +1618,33 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Lightbox
+    const galleryImages = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.src);
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById('lightbox-img').src = galleryImages[index];
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function changePhoto(dir) {
+      currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightbox-img').src = galleryImages[currentIndex];
+    }
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') changePhoto(1);
+      if (e.key === 'ArrowLeft') changePhoto(-1);
+    });
   </script>
 </body>
 </html>
