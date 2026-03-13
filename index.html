@@ -529,54 +529,111 @@
 
     .coach-grid {
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 3rem;
+      grid-template-columns: 340px 1fr;
+      gap: 4rem;
       align-items: start;
     }
-    .coach-avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--red), #6b0000);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      border: 3px solid var(--gold);
-      box-shadow: 0 0 30px rgba(204,17,17,0.3);
-      flex-shrink: 0;
+
+    .coach-photo-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      border: 1px solid var(--border);
     }
+    .coach-photo-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .coach-photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.2rem 1.4rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    }
+    .coach-photo-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .coach-photo-role {
+      font-size: 0.78rem;
+      color: #f0b429;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     .coach-name {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 0.2rem;
+      color: #1a1a1a;
     }
     .coach-title {
       color: var(--gold);
       font-family: 'Oswald', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
     }
     .coach-bio {
-      color: #444444;
-      line-height: 1.8;
+      color: #444;
+      line-height: 1.85;
       font-size: 0.97rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
-    .coach-tags {
+    .coach-quote {
+      border-left: 3px solid var(--red);
+      padding: 0.8rem 1.2rem;
+      margin: 1.5rem 0;
+      background: rgba(204,17,17,0.05);
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+      color: #333;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .coach-quote span {
+      display: block;
+      margin-top: 0.4rem;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .coach-achievements {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.7rem;
+      margin-top: 1.8rem;
     }
-    .coach-tag {
-      background: rgba(184,134,11,0.1);
-      border: 1px solid rgba(184,134,11,0.35);
-      color: #8a6200;
-      font-size: 0.78rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      letter-spacing: 0.05em;
+    .achievement-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 0.45rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .achievement-badge:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+    .achievement-badge .badge-icon { font-size: 1rem; }
+
+    @media (max-width: 900px) {
+      .coach-grid { grid-template-columns: 1fr; }
+      .coach-photo-card img { height: 340px; }
+      .coach-achievements { justify-content: center; }
     }
 
     /* ── LOCATION ── */
@@ -1263,26 +1320,44 @@
   <!-- COACH -->
   <section id="coach">
     <div class="section-inner">
-      <div class="section-label">Meet Your Coach</div>
+      <div class="section-label fade-up">Meet Your Coach</div>
       <div class="coach-grid fade-up">
-        <div class="coach-avatar">⚽</div>
+
+        <!-- Left: Photo Card -->
+        <div class="coach-photo-card">
+          <img src="images/Justin.jpg" alt="Coach Justin" />
+          <div class="coach-photo-overlay">
+            <div class="coach-photo-name">Coach Justin</div>
+            <div class="coach-photo-role">Founder &amp; Head Coach</div>
+          </div>
+        </div>
+
+        <!-- Right: Bio -->
         <div>
           <h2 class="coach-name">Coach <span style="color:var(--gold)">Justin</span></h2>
           <div class="coach-title">Founder &amp; Head Coach — 3150 Dragons Soccer Academy</div>
+
           <p class="coach-bio">
-            At 3150 Dragons Soccer Academy, we're passionate about nurturing the love for soccer in young talents aged 6 to 12. Our goal is to develop soccer skills and instil values of teamwork, discipline, and sportsmanship.
+            Coach Justin grew up playing soccer in Malaysia before honing his game in the schools of south London, UK. After migrating to Melbourne, he played for Lyndale United and the Victorian Sikh Association (VSA) before founding South East Tigers FC as player-manager — leading the club to both the MCSA Yamagata Cup and the League Title.
           </p>
           <p class="coach-bio">
-            Our experienced coaches work closely with every child, providing the guidance and encouragement they need to thrive — whether they're brand new to the game or looking to sharpen their skills.
+            For the past 15 years, Justin has managed VSA Ashwood FC, building a reputation as one of Melbourne's most dedicated grassroots football mentors. In 2022, he founded the 3150 Dragons Soccer Academy in Wheelers Hill, with deep roots in the Glen Waverley Primary School community. The academy has since grown into an official feeder club for Mazenod Football Club.
           </p>
-          <div class="coach-tags">
-            <span class="coach-tag">Skill Development</span>
-            <span class="coach-tag">Youth Coaching</span>
-            <span class="coach-tag">Teamwork & Values</span>
-            <span class="coach-tag">Fitness & Coordination</span>
-            <span class="coach-tag">Private Coaching</span>
+
+          <div class="coach-quote">
+            "Play as best you can — with passion, drive, and a smile."
+            <span>— Coach Justin</span>
+          </div>
+
+          <div class="coach-achievements">
+            <div class="achievement-badge"><span class="badge-icon">🏆</span> MCSA Yamagata Cup Winner</div>
+            <div class="achievement-badge"><span class="badge-icon">🥇</span> MCSA League Champion x 2 with VSA Ashwood FC</div>
+            <div class="achievement-badge"><span class="badge-icon">⚽</span> 15+ Years Coaching</div>
+            <div class="achievement-badge"><span class="badge-icon">🐉</span> Founded 3150 Dragons 2022</div>
+            <div class="achievement-badge"><span class="badge-icon">🔗</span> Mazenod FC feeder academy</div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
