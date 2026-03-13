@@ -120,49 +120,39 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #fdf9f4 0%, #fceee8 50%, #fdf9f4 100%);
+      background-color: #0a0a0a;
+      background-image: url('images/dragons-logo.png');
+      background-size: 70%;
+      background-position: center;
+      background-repeat: no-repeat;
       text-align: center;
       padding: 6rem 1.5rem 4rem;
     }
 
-    /* Animated grid overlay */
+    /* Dark overlay so text is readable over logo */
     #hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(184,134,11,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,134,11,0.07) 1px, transparent 1px);
-      background-size: 60px 60px;
+      background: rgba(0, 0, 0, 0.65);
     }
 
-    /* Glowing orbs */
-    .hero-glow {
+    /* Edge vignette for depth */
+    #hero::after {
+      content: '';
       position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.18;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%);
       pointer-events: none;
-    }
-    .hero-glow-1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, #cc1111, transparent 70%);
-      top: -100px; left: -100px;
-    }
-    .hero-glow-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, #f0b429, transparent 70%);
-      bottom: -80px; right: -80px;
-      opacity: 0.2;
     }
 
     .hero-content { position: relative; z-index: 1; max-width: 780px; }
 
     .hero-badge {
       display: inline-block;
-      background: rgba(184,134,11,0.12);
-      border: 1px solid var(--gold);
-      color: var(--gold);
+      background: rgba(240,180,41,0.15);
+      border: 1px solid #f0b429;
+      color: #f0b429;
       font-family: 'Oswald', sans-serif;
       font-size: 0.8rem;
       letter-spacing: 0.15em;
@@ -172,31 +162,23 @@
       text-transform: uppercase;
     }
 
-    .hero-dragon {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
-      filter: drop-shadow(0 0 20px rgba(204,17,17,0.8));
-      animation: flicker 3s ease-in-out infinite;
-    }
-    @keyframes flicker {
-      0%, 100% { filter: drop-shadow(0 0 20px rgba(204,17,17,0.8)); }
-      50%       { filter: drop-shadow(0 0 35px rgba(240,180,41,0.9)); }
-    }
-
     .hero-title {
-      font-size: clamp(2.6rem, 7vw, 5rem);
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
       font-weight: 700;
       line-height: 1.05;
       margin-bottom: 0.4rem;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
     }
-    .hero-title .highlight { color: var(--gold); }
-    .hero-title .academy-word { color: var(--red); }
+    .hero-title .highlight { color: #f0b429; }
+    .hero-title .academy-word { color: #e63333; }
 
     .hero-subtitle {
       font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: #555555;
+      color: rgba(255,255,255,0.82);
       margin: 1rem 0 2.5rem;
       line-height: 1.6;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
     }
 
     .hero-buttons {
@@ -227,18 +209,18 @@
 
     .btn-secondary {
       background: transparent;
-      color: var(--gold);
+      color: #f0b429;
       font-family: 'Oswald', sans-serif;
       font-size: 1.05rem;
       letter-spacing: 0.08em;
       padding: 0.9rem 2.2rem;
       border-radius: 6px;
-      border: 1.5px solid var(--gold);
+      border: 1.5px solid #f0b429;
       cursor: pointer;
       transition: background 0.2s, transform 0.15s;
     }
     .btn-secondary:hover {
-      background: rgba(240,180,41,0.1);
+      background: rgba(240,180,41,0.15);
       transform: translateY(-2px);
     }
 
@@ -260,7 +242,7 @@
     }
     .stat-label {
       font-size: 0.78rem;
-      color: #777777;
+      color: rgba(255,255,255,0.65);
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -1014,11 +996,8 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-glow hero-glow-1"></div>
-    <div class="hero-glow hero-glow-2"></div>
     <div class="hero-content">
       <div class="hero-badge">&#9733; Wheelers Hill, Melbourne VIC 3150</div>
-      <div class="hero-dragon">🐉</div>
       <h1 class="hero-title">
         <span class="highlight">3150</span> DRAGONS<br>
         <span class="academy-word">SOCCER ACADEMY</span>
