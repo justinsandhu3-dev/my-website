@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3150 Dragons Soccer Academy | Wheelers Hill, Melbourne</title>
+  <meta name="description" content="3150 Dragons Soccer Academy — fun, skill-building soccer training for kids aged 6–11 in Wheelers Hill, Melbourne. Free trial session. No registration fees." />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #fdf9f4;
+      --dark:    #f5ede4;
+      --card:    #ffffff;
+      --red:     #cc1111;
+      --red-bright: #e62020;
+      --gold:    #b8860b;
+      --gold-light: #9a6f00;
+      --white:   #1a1a1a;
+      --muted:   #666666;
+      --border:  #e2d4c8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #fdf9f4;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      background: rgba(253,249,244,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+    .nav-logo span { color: #1a1a1a; }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      color: #1a1a1a;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--red-bright) !important; color: #fff !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #1a1a1a;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #fdf9f4 0%, #fceee8 50%, #fdf9f4 100%);
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+    }
+
+    /* Animated grid overlay */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(184,134,11,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,134,11,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Glowing orbs */
+    .hero-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .hero-glow-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #cc1111, transparent 70%);
+      top: -100px; left: -100px;
+    }
+    .hero-glow-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #f0b429, transparent 70%);
+      bottom: -80px; right: -80px;
+      opacity: 0.2;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(184,134,11,0.12);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero-dragon {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 0 20px rgba(204,17,17,0.8));
+      animation: flicker 3s ease-in-out infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(204,17,17,0.8)); }
+      50%       { filter: drop-shadow(0 0 35px rgba(240,180,41,0.9)); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 0.4rem;
+    }
+    .hero-title .highlight { color: var(--gold); }
+    .hero-title .academy-word { color: var(--red); }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: #555555;
+      margin: 1rem 0 2.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      padding: 0.9rem 2.2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(204,17,17,0.4);
+    }
+    .btn-primary:hover {
+      background: var(--red-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(204,17,17,0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      padding: 0.9rem 2.2rem;
+      border-radius: 6px;
+      border: 1.5px solid var(--gold);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover {
+      background: rgba(240,180,41,0.1);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: #777777;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION STYLES ── */
+    section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .section-title .gold { color: var(--gold); }
+    .section-divider {
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      margin-bottom: 2.5rem;
+      border-radius: 2px;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--dark); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: #444444;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.2rem;
+      border-radius: 6px;
+    }
+    .value-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .value-text h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+      color: var(--gold);
+    }
+    .value-text p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── PROGRAMS ── */
+    #programs { background: var(--black); }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .program-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+    .program-card:hover { border-color: rgba(184,134,11,0.4); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+    .program-card:hover::before { transform: scaleX(1); }
+
+    .program-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .program-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: #1a1a1a;
+    }
+    .program-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .program-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      background: rgba(204,17,17,0.15);
+      border: 1px solid var(--red);
+      color: #cc1111;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+    .program-badge.gold-badge {
+      background: rgba(240,180,41,0.12);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* ── AGE GROUPS ── */
+    #ages { background: var(--dark); }
+
+    .ages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .age-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .age-card:hover { border-color: var(--red); transform: translateY(-4px); }
+
+    .age-emoji { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .age-range {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .age-group-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .age-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    .pricing-banner {
+      background: linear-gradient(135deg, #fceee8, #fdf5e0);
+      border: 1px solid rgba(240,180,41,0.3);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(204,17,17,0.03), rgba(184,134,11,0.03));
+    }
+    .pricing-banner-content { position: relative; z-index: 1; }
+    .pricing-banner h3 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin-bottom: 0.5rem;
+    }
+    .pricing-banner p { color: var(--muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .pricing-features {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .pricing-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .pricing-feature i { color: var(--gold); }
+
+    /* ── COACH ── */
+    #coach { background: var(--black); }
+
+    .coach-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .coach-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), #6b0000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 30px rgba(204,17,17,0.3);
+      flex-shrink: 0;
+    }
+    .coach-name {
+      font-size: 2rem;
+      margin-bottom: 0.2rem;
+    }
+    .coach-title {
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .coach-bio {
+      color: #444444;
+      line-height: 1.8;
+      font-size: 0.97rem;
+      margin-bottom: 1.5rem;
+    }
+    .coach-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .coach-tag {
+      background: rgba(184,134,11,0.1);
+      border: 1px solid rgba(184,134,11,0.35);
+      color: #8a6200;
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── LOCATION ── */
+    #location { background: var(--dark); }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .location-info { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .location-detail {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .location-detail-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(204,17,17,0.15);
+      border: 1px solid rgba(204,17,17,0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+    .location-detail-text h4 {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.2rem;
+    }
+    .location-detail-text p { color: #1a1a1a; font-size: 0.95rem; }
+
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      display: block;
+    }
+
+    /* ── SOCIAL ── */
+    #social { background: var(--black); }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .social-card {
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .social-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
+
+    .social-card.facebook {
+      background: linear-gradient(135deg, #eef4ff, #f5f9ff);
+      border-color: #1877f2;
+    }
+    .social-card.facebook:hover { border-color: #4293f5; box-shadow: 0 12px 35px rgba(24,119,242,0.15); }
+
+    .social-card.instagram {
+      background: linear-gradient(135deg, #fff0f6, #fff8f0);
+      border-color: #c13584;
+    }
+    .social-card.instagram:hover { border-color: #e1306c; box-shadow: 0 12px 35px rgba(193,53,132,0.15); }
+
+    .social-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .social-card.facebook .social-icon { color: #4293f5; }
+    .social-card.instagram .social-icon { color: #e1306c; }
+
+    .social-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #1a1a1a; }
+    .social-card p { color: #555555; font-size: 0.88rem; margin-bottom: 1.5rem; line-height: 1.6; }
+
+    .btn-social {
+      display: inline-block;
+      padding: 0.65rem 1.6rem;
+      border-radius: 6px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-social:hover { opacity: 0.85; transform: translateY(-1px); }
+    .social-card.facebook .btn-social { background: #1877f2; color: #fff; }
+    .social-card.instagram .btn-social {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info p {
+      color: #444444;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 0.8rem; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--gold); }
+    .contact-link i { color: var(--red); width: 18px; text-align: center; }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      color: #1a1a1a;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group select { cursor: pointer; }
+    .form-group select option { background: #ffffff; color: #1a1a1a; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      background: var(--red);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .form-submit:hover { background: var(--red-bright); transform: translateY(-1px); }
+    .form-note { font-size: 0.78rem; color: var(--muted); text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #2a1a0e;
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand h3 {
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .footer-social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: opacity 0.2s, transform 0.15s;
+      border: 1px solid var(--border);
+    }
+    .footer-social-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+    .footer-social-btn.fb { background: rgba(24,119,242,0.15); color: #4293f5; border-color: rgba(24,119,242,0.3); }
+    .footer-social-btn.ig { background: rgba(225,48,108,0.1); color: #e1306c; border-color: rgba(225,48,108,0.3); }
+
+    .footer-col h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom p { color: var(--muted); font-size: 0.8rem; }
+    .footer-bottom .dragon { color: var(--red); }
+
+    /* ── MOBILE NAV ── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0; right: 0;
+        flex-direction: column;
+        background: rgba(253,249,244,0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 1.5rem;
+        gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid var(--border); }
+      .nav-links a { display: block; padding: 0.8rem 0; font-size: 1.05rem; }
+      .nav-hamburger { display: flex; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .coach-grid { grid-template-columns: 1fr; text-align: center; }
+      .coach-avatar { margin: 0 auto; }
+      .coach-tags { justify-content: center; }
+      .location-grid { grid-template-columns: 1fr; }
+      .social-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-stats { gap: 1.5rem; }
+      .ages-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .ages-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo">3150 <span>DRAGONS</span><br>SOCCER ACADEMY</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#ages">Ages & Pricing</a></li>
+      <li><a href="#coach">Coach</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#social">Follow Us</a></li>
+      <li><a href="#contact" class="nav-cta">Book Free Trial</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">&#9733; Wheelers Hill, Melbourne VIC 3150</div>
+      <div class="hero-dragon">🐉</div>
+      <h1 class="hero-title">
+        <span class="highlight">3150</span> DRAGONS<br>
+        <span class="academy-word">SOCCER ACADEMY</span>
+      </h1>
+      <p class="hero-subtitle">
+        Building champions on and off the field. Fun, skill-focused soccer<br>
+        training for kids aged 6–11 in Wheelers Hill.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">&#9654; Book Your Free Trial</a>
+        <a href="#programs" class="btn-secondary">See Our Programs</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">6–11</div>
+          <div class="stat-label">Ages Catered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">FREE</div>
+          <div class="stat-label">First Trial Session</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">$0</div>
+          <div class="stat-label">Registration Fees</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">PAY</div>
+          <div class="stat-label">Per Session Only</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text fade-up">
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-title">Nurturing Young <span class="gold">Dragons</span></h2>
+          <div class="section-divider"></div>
+          <p>At 3150 Dragons Soccer Academy, we're passionate about nurturing the love for soccer in young talents aged 6 to 11. Our goal is to develop their soccer skills and instil values of teamwork, discipline, and sportsmanship.</p>
+          <p>We believe every child deserves a supportive environment where they can grow, have fun, and discover their full potential — both on the pitch and in life.</p>
+          <p>Based right here in Wheelers Hill, we're your local soccer community. Come down, give it a try, and become part of the Dragons family.</p>
+          <br />
+          <a href="#contact" class="btn-primary">Book a Free Trial</a>
+        </div>
+        <div class="about-values fade-up">
+          <div class="value-item">
+            <div class="value-icon">🏆</div>
+            <div class="value-text">
+              <h4>Skill Development</h4>
+              <p>Age-appropriate drills and exercises that build real, lasting ability.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🤝</div>
+            <div class="value-text">
+              <h4>Teamwork & Sportsmanship</h4>
+              <p>We develop the whole player — confident, respectful, and coachable.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">⚡</div>
+            <div class="value-text">
+              <h4>Fun & Engaging Sessions</h4>
+              <p>Kids who enjoy training, train harder. Every session is designed to excite.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🌟</div>
+            <div class="value-text">
+              <h4>Experienced Coaching</h4>
+              <p>Passionate, dedicated coaching tailored to every child's level.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <div class="section-inner">
+      <div style="text-align:center;" class="fade-up">
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Our <span class="gold">Programs</span></h2>
+        <div class="section-divider" style="margin-left:auto;margin-right:auto;"></div>
+      </div>
+      <div class="programs-grid">
+        <div class="program-card fade-up">
+          <div class="program-icon">⚽</div>
+          <h3>Fun & Engaging Training</h3>
+          <p>High-energy sessions packed with games, challenges, and drills that keep kids coming back every week with a smile.</p>
+          <span class="program-badge">All Ages</span>
+        </div>
+        <div class="program-card fade-up">
+          <div class="program-icon">🎯</div>
+          <h3>Age-Appropriate Coaching</h3>
+          <p>Our sessions are tailored to each age group — building confidence and technique at the right pace for your child's stage of development.</p>
+          <span class="program-badge">Ages 6–11</span>
+        </div>
+        <div class="program-card fade-up">
+          <div class="program-icon">🏃</div>
+          <h3>Fitness & Co-ordination</h3>
+          <p>Improve agility, balance, coordination, and overall fitness through fun movement activities woven into every session.</p>
+          <span class="program-badge">All Ages</span>
+        </div>
+        <div class="program-card fade-up">
+          <div class="program-icon">🤜</div>
+          <h3>Team Building</h3>
+          <p>Small-sided games and group activities foster communication, trust, and camaraderie — life skills that go beyond the pitch.</p>
+          <span class="program-badge">Group Sessions</span>
+        </div>
+        <div class="program-card fade-up">
+          <div class="program-icon">🥅</div>
+          <h3>Friendly Tournaments</h3>
+          <p>Organised mini-tournaments give players the thrill of match day in a fun, low-pressure environment that builds competitive spirit.</p>
+          <span class="program-badge">Seasonal</span>
+        </div>
+        <div class="program-card fade-up">
+          <div class="program-icon">⭐</div>
+          <h3>Private Coaching</h3>
+          <p>For those seeking personalised attention — 1-on-1 sessions tailored specifically to your child's individual needs and goals.</p>
+          <span class="program-badge gold-badge">Personalised</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGES & PRICING -->
+  <section id="ages">
+    <div class="section-inner">
+      <div style="text-align:center;" class="fade-up">
+        <div class="section-label">Age Groups & Pricing</div>
+        <h2 class="section-title">Find the Right <span class="gold">Group</span></h2>
+        <div class="section-divider" style="margin-left:auto;margin-right:auto;"></div>
+      </div>
+      <div class="ages-grid fade-up">
+        <div class="age-card">
+          <div class="age-emoji">🌱</div>
+          <div class="age-range">6 – 7</div>
+          <div class="age-group-name">Little Dragons</div>
+          <p class="age-desc">Introduction to the game — basic ball skills, fun movement, and falling in love with soccer.</p>
+        </div>
+        <div class="age-card">
+          <div class="age-emoji">🔥</div>
+          <div class="age-range">8 – 9</div>
+          <div class="age-group-name">Rising Dragons</div>
+          <p class="age-desc">Building on fundamentals — passing, dribbling, teamwork, and first taste of match play.</p>
+        </div>
+        <div class="age-card">
+          <div class="age-emoji">⚡</div>
+          <div class="age-range">10 – 11</div>
+          <div class="age-group-name">Fire Dragons</div>
+          <p class="age-desc">Tactical awareness, advanced technique, and competitive mini-tournaments.</p>
+        </div>
+      </div>
+
+      <div class="pricing-banner fade-up">
+        <div class="pricing-banner-content">
+          <h3>Simple, Flexible <span style="color:var(--gold)">Pricing</span></h3>
+          <p>No lock-in contracts. No registration fees. Just show up and play.</p>
+          <div class="pricing-features">
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> FREE first trial session</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Pay per session — no term commitments</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> No registration or joining fees</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Private coaching available on request</div>
+          </div>
+          <a href="#contact" class="btn-primary">Enquire About Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACH -->
+  <section id="coach">
+    <div class="section-inner">
+      <div class="section-label">Meet Your Coach</div>
+      <div class="coach-grid fade-up">
+        <div class="coach-avatar">⚽</div>
+        <div>
+          <h2 class="coach-name">Coach <span style="color:var(--gold)">Justin</span></h2>
+          <div class="coach-title">Founder &amp; Head Coach — 3150 Dragons Soccer Academy</div>
+          <p class="coach-bio">
+            At 3150 Dragons Soccer Academy, we're passionate about nurturing the love for soccer in young talents aged 6 to 11. Our goal is to develop soccer skills and instil values of teamwork, discipline, and sportsmanship.
+          </p>
+          <p class="coach-bio">
+            Our experienced coaches work closely with every child, providing the guidance and encouragement they need to thrive — whether they're brand new to the game or looking to sharpen their skills.
+          </p>
+          <div class="coach-tags">
+            <span class="coach-tag">Skill Development</span>
+            <span class="coach-tag">Youth Coaching</span>
+            <span class="coach-tag">Teamwork & Values</span>
+            <span class="coach-tag">Fitness & Coordination</span>
+            <span class="coach-tag">Private Coaching</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="section-label">Where to Find Us</div>
+        <h2 class="section-title">Training <span class="gold">Location</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="location-grid fade-up">
+        <div class="location-info">
+          <div class="location-detail">
+            <div class="location-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="location-detail-text">
+              <h4>Venue</h4>
+              <p>Lum Reserve</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="location-detail-icon"><i class="fas fa-road"></i></div>
+            <div class="location-detail-text">
+              <h4>Address</h4>
+              <p>Lum Road, Wheelers Hill<br>Melbourne VIC 3150</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="location-detail-icon"><i class="fas fa-car"></i></div>
+            <div class="location-detail-text">
+              <h4>Getting Here</h4>
+              <p>Free parking available at the reserve. Easily accessible from Wheelers Hill and surrounding suburbs.</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="location-detail-icon"><i class="fas fa-clock"></i></div>
+            <div class="location-detail-text">
+              <h4>Session Times</h4>
+              <p>Contact us to find out current session days and times.</p>
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=Lum+Reserve,+Lum+Road,+Wheelers+Hill+VIC+3150" target="_blank" rel="noopener" class="btn-secondary" style="display:inline-block;margin-top:0.5rem;">
+            <i class="fas fa-directions"></i> Get Directions
+          </a>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.5!2d145.193!3d-37.902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66b1e3c5f8e7d%3A0x0!2sLum+Reserve%2C+Lum+Rd%2C+Wheelers+Hill+VIC+3150!5e0!3m2!1sen!2sau!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lum Reserve, Wheelers Hill">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL -->
+  <section id="social">
+    <div class="section-inner">
+      <div style="text-align:center;" class="fade-up">
+        <div class="section-label">Training Videos & Updates</div>
+        <h2 class="section-title">Follow the <span class="gold">Dragons</span></h2>
+        <div class="section-divider" style="margin-left:auto;margin-right:auto;"></div>
+        <p style="color:#555;max-width:580px;margin:0 auto 3rem;font-size:0.95rem;line-height:1.7;">
+          Watch training highlights, skill videos, and behind-the-scenes content from our sessions. Follow us to stay up to date with news, events, and tournament results.
+        </p>
+      </div>
+      <div class="social-grid fade-up">
+        <div class="social-card facebook">
+          <div class="social-icon"><i class="fab fa-facebook"></i></div>
+          <h3>Facebook</h3>
+          <p>Latest news, session updates, photos, and community announcements. Message us directly to ask questions or book your free trial.</p>
+          <a href="https://www.facebook.com/3150DragonsSoccerAcademy" target="_blank" rel="noopener" class="btn-social">
+            <i class="fab fa-facebook"></i> Visit Our Page
+          </a>
+        </div>
+        <div class="social-card instagram">
+          <div class="social-icon"><i class="fab fa-instagram"></i></div>
+          <h3>Instagram</h3>
+          <p>Training session videos, skill highlights, and real moments from the pitch. See what the Dragons are working on this week.</p>
+          <a href="https://www.instagram.com/justin3838/" target="_blank" rel="noopener" class="btn-social">
+            <i class="fab fa-instagram"></i> Follow on Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="fade-up">
+          <div class="section-label">Get In Touch</div>
+          <h2 class="section-title">Book Your <span class="gold">Free Trial</span></h2>
+          <div class="section-divider"></div>
+          <p style="color:#444;line-height:1.7;margin-bottom:1.5rem;">
+            Ready to join the Dragons? Fill in the form and we'll get back to you to organise your child's <strong style="color:var(--gold)">free trial session</strong> — no commitment required.
+          </p>
+          <p style="color:#444;line-height:1.7;margin-bottom:2rem;">
+            Have questions about sessions, programs, or private coaching? We'd love to hear from you.
+          </p>
+          <div class="contact-links">
+            <a href="https://www.facebook.com/3150DragonsSoccerAcademy" target="_blank" rel="noopener" class="contact-link">
+              <i class="fab fa-facebook"></i> Message us on Facebook
+            </a>
+            <a href="https://www.instagram.com/justin3838/" target="_blank" rel="noopener" class="contact-link">
+              <i class="fab fa-instagram"></i> DM us on Instagram
+            </a>
+            <a href="https://maps.google.com/?q=Lum+Reserve,+Lum+Road,+Wheelers+Hill+VIC+3150" target="_blank" rel="noopener" class="contact-link">
+              <i class="fas fa-map-marker-alt"></i> Lum Reserve, Wheelers Hill VIC 3150
+            </a>
+          </div>
+        </div>
+        <div class="fade-up">
+          <!--
+            ACTION: To make this form work, sign up for free at formspree.io,
+            create a form, and replace YOUR_FORM_ID below with your actual form ID.
+          -->
+          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="parent-name">Parent / Guardian Name</label>
+                <input type="text" id="parent-name" name="parent_name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="child-name">Child's Name</label>
+                <input type="text" id="child-name" name="child_name" placeholder="Child's name" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="child-age">Child's Age</label>
+                <select id="child-age" name="child_age" required>
+                  <option value="" disabled selected>Select age</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="04xx xxx xxx" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="interest">What are you interested in?</label>
+              <select id="interest" name="interest">
+                <option value="" disabled selected>Select an option</option>
+                <option>Free Trial Session</option>
+                <option>Group Sessions</option>
+                <option>Private Coaching</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message (optional)</label>
+              <textarea id="message" name="message" placeholder="Any questions or information you'd like us to know..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">🐉 Send Enquiry</button>
+            <p class="form-note">We'll get back to you as soon as possible. Your first trial is completely free.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>3150 DRAGONS SOCCER ACADEMY</h3>
+          <p>Developing young soccer talent with passion, skill, and values. Proudly based in Wheelers Hill, Melbourne.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/3150DragonsSoccerAcademy" target="_blank" rel="noopener" class="footer-social-btn fb" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/justin3838/" target="_blank" rel="noopener" class="footer-social-btn ig" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#ages">Age Groups</a></li>
+            <li><a href="#coach">Meet the Coach</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Book Free Trial</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul class="footer-links">
+            <li><a href="#programs">Group Training</a></li>
+            <li><a href="#programs">Private Coaching</a></li>
+            <li><a href="#programs">Friendly Tournaments</a></li>
+            <li><a href="#ages">Little Dragons (6–7)</a></li>
+            <li><a href="#ages">Rising Dragons (8–9)</a></li>
+            <li><a href="#ages">Fire Dragons (10–11)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 3150 Dragons Soccer Academy. All rights reserved.</p>
+        <p>Made with <span class="dragon">&#10084;</span> in Wheelers Hill, Melbourne</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    // Close nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Scroll-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
